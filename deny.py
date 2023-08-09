@@ -124,9 +124,9 @@ def main():
         logger.error("大佬，没有IP地址可以封，不要逗我，好么？？")
         return -1
     deny_ipv4 = need_deny_ip_list[(need_deny_ip_list['ip_type'] == 4)
-                                  & (need_deny_ip_list['是否封堵'] == '是')]
+                                  & (need_deny_ip_list['是否封堵'] == '是')].reset_index(drop=True)
     deny_ipv6 = need_deny_ip_list[(need_deny_ip_list['ip_type'] == 6)
-                                  & (need_deny_ip_list['是否封堵'] == '是')]
+                                  & (need_deny_ip_list['是否封堵'] == '是')].reset_index(drop=True)
     split_size = 101
     logger.info(f"封堵中，大佬喝杯茶，请稍后。")
     for i in range(0, len(deny_ipv4), split_size):
